@@ -1,5 +1,5 @@
 module.exports = {
-  pathPrefix: "/portafolio",
+  pathPrefix: "/portafolio-ux",
   plugins: [
     'gatsby-plugin-eslint',
     'gatsby-plugin-sass',
