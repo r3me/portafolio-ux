@@ -11,7 +11,7 @@ const works = [
 		title: "Prototipo | Aplicación Financiera",
 		time: "Tiempo de Desarrollo | 3 Semanas",
 		team: "Desarrollo | UX Design: Amelia Estrada. (Proyecto Individual)",
-		link: "https://github.com/rxmstrd/cdmx_2018_01_ux_financial_app.md",
+		link: "https://marvelapp.com/60f7397/screen/48903399",
 		img: financial,
 	},
 	{
