@@ -29,11 +29,15 @@ _corre en localhost:8000_
 ```npm run serve```
 _corre en localhost:9000_
 
-Desarrollo:
+##### Desarrollo:
 
 Front End:
 H. Richer
+
+
 Amelia Estrada
 
 UX, UI:
+
+
 Amelia Estrada
