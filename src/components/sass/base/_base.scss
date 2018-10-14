@@ -1,0 +1,67 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing:
+  border-box;
+}
+body{
+  width: 100%;
+  font-size: 16px;
+  font-family: $font;
+  font-weight: 300;
+  color: $black;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-overflow-scrolling: touch;
+}
+main {
+  width: 100%;
+  display: block;
+  min-height: 90vh;
+}
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: $black;
+  cursor: pointer;
+  @include trans;
+}
+img {
+  display: block;
+  width: 100%;
+  line-height: 0;
+}
+picture {
+  width: 100%;
+  display: block;
+  line-height: 0;
+}
+input, textarea {
+	display: block;
+  width: 100%;
+  font-family: $open;
+  font-size: 16px;
+  font-weight: 300;
+  padding: 0.5rem;
+  @include trans;
+}
+button {
+  font-family: $font;
+  font-size: 16px;
+  font-weight: 300;
+  cursor: pointer;
+  @include trans;
+}
+select {cursor: pointer;
+  width: 100%;
+  font-family: $font;
+  font-size: 16px;
+  font-weight: 300;
+  @include trans;
+  &::-ms-expand { display: none; }
+}
+label {
+  display: inline-block;
+  cursor: pointer;
+}

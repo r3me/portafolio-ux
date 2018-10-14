@@ -1,0 +1,30 @@
+.contact { background-color: $black;
+	width: 100%;
+	min-height: 70vh;
+	padding: 2rem 0;
+	background-attachment: fixed;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('./../../images/contacto-mobile.jpg');
+  @include tablet { background-image: url('./../../images/contacto-tablet.jpg'); }
+  @include desk { background-image: url('./../../images/contacto-desktop.jpg'); }
+  @include retina { background-image: url('./../../images/contacto-retina.jpg'); }
+	header { text-align: center;
+		h3 { display: inline-block; font-size: 1.6rem; font-weight: 300; color: white; padding: 0.5rem 2rem; border-bottom: 2px solid $base; margin-bottom: 2rem; }
+	}
+
+	&--form {
+		width: 90%;
+		@include tablet { width: 60%; }
+		margin: 0 auto 2rem auto;
+		label {
+			width: 100%;
+			margin-bottom: 0.5rem;
+			textarea { min-height: 9rem; border: 1px olid $light; }
+			button { width: 100%; background-color: $base; color: white; border: 1px solid $base; padding: 1rem; font-family: $font; font-size: 1.25rem;
+				&:hover { border-color: transparent; background-color: whitesmoke; color: $base; }
+			}
+		}
+	}
+}

@@ -1,0 +1,47 @@
+// FONTS
+$icon:'FontAwesome';
+$font:'Raleway', sans-serif;
+$open:'Open Sans', sans-serif;
+
+// COLOR
+$base:#f74269;
+$black:#222;
+$dark:#444;
+$grey:#aaa;
+$light:#eee;
+$facebook:#3b5998;
+$twitter:#1da1f2;
+$linkedin:#1178b3;
+
+// BASIC
+@mixin module { width: 100%; max-width: 1200px; margin: 0 auto; }
+
+// MEDIA
+@mixin retina {
+  @media screen and (min-width: 1600px) {@content;}
+}
+@mixin desk {
+  @media screen and (min-width: 1025px) {@content;}
+}
+@mixin tablet {
+  @media screen and (min-width: 760px) {@content;}
+}
+@mixin phone {
+  @media screen and (max-width: 760px) {@content;}
+}
+@mixin ie11 {
+  @media all and (-ms-high-contrast:none) {@content;}
+}
+
+// POSITION
+@mixin full-fixed {
+	top: 0; bottom: 0; left: 0; right: 0; position: fixed;
+}
+@mixin full-absolute {
+	top: 0; bottom: 0; left: 0; right: 0; position: absolute;
+}
+
+// ANIMATION
+@mixin trans {
+  transition: all 0.3s ease;
+}
