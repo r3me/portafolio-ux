@@ -15,8 +15,8 @@ const Hero = () => {
         <h2>Ux Designer</h2>
       </header>
       <nav>
-        <a href="#" target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin-in" /></a>
-        <a href="#" target="_blank" rel="noopener noreferrer"><i className="fab fa-github-alt" /></a>
+        <a href="https://www.linkedin.com/in/amelia-estrada/" target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin-in" /></a>
+        <a href="https://github.com/rxmstrd?tab=repositories" target="_blank" rel="noopener noreferrer"><i className="fab fa-github-alt" /></a>
         <a onClick={scrollToContact}><i className="far fa-envelope" /></a>
 			</nav>
 			<aside>
