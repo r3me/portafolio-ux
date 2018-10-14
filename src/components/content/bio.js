@@ -6,13 +6,13 @@ const Bio = () => {
     {
       title: "Médicos sin Fronteras en México AC",
       description: "Proyecto `Transmigrantes´",
-      activity: "Realización de entrevistas a personas migrantes en Tránsito por México",
+      activity: "Realización de entrevistas a personas migrantes en Tránsito por México.",
       date: "2018"
     },
     {
       title: "SIMO Consulting",
       description: "Proyecto `Calidad del Aire´",
-      activity: "Responsable de equipo, seguimiento de rutas, supervisión en campo",
+      activity: "Responsable de equipo, seguimiento de rutas, supervisión en campo.",
       date: "2018"
     },
       {
