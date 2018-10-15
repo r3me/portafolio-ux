@@ -20,7 +20,7 @@ class Layout extends Component {
 		return (
 			<div id="layout">
 				<Helmet
-					title="Amelia Estrada | UX - Portfolio"
+					title="Amelia Estrada | UX - Portafolio"
 					meta={[
 						{ name: 'description', content: 'Amelia Estrada | UX | México 2018 | Skills: Sketch, Marvel, Figma, Ideación de Proyectos, Reasearch, Map Journey, User Persona, Empathy Map, Análisis de Data, HTML, CSS, Javascript...' },
 						{ name: 'keywords', content: 'amelia, estrada, ux, experiencia, usuario, user experience, prototipado, prototipo, research, servicios, mexico' },

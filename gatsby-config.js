@@ -7,7 +7,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'Amelia Estrada | UX Portfolio',
+        name: 'Amelia Estrada | UX Portafolio',
         short_name: 'Amelia UX',
         start_url: '/',
         background_color: '#FFFFFF',
