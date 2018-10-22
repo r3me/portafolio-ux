@@ -28,20 +28,20 @@ const works = [
 		link: "https://github.com/rxmstrd/hackathonTeleton",
 		img: teletón,
 	},
-	{
-		title: "Prototipo | Hackathon Blockchain",
-		time: "Tiempo de Desarrollo | 22 y 23 de Sep 2018",
-		team: "Desarrollo | UX Design + 2 Front End + 2 Estrategia de Neogocios ",
-		link: "https://github.com/rxmstrd/1-1-1-identity-frontend-i",
-		img: blockchain,
-	},
-	{
-		title: "Prototipo | Workshop de Citi Banamex",
-		time: "Tiempo de Desarrollo | 11 Agosto de 2018",
-		team: "Desarrollo | UX Design: Berenice Lemus y Amelia Estrada+ 3 Front End",
-		link: "https://github.com/rxmstrd/citi-kanban",
-		img: citi,
-	},
+	// {
+	// 	title: "Prototipo | Hackathon Blockchain",
+	// 	time: "Tiempo de Desarrollo | 22 y 23 de Sep 2018",
+	// 	team: "Desarrollo | UX Design + 2 Front End + 2 Estrategia de Neogocios ",
+	// 	link: "https://github.com/rxmstrd/1-1-1-identity-frontend-i",
+	// 	img: blockchain,
+	// },
+	// {
+	// 	title: "Prototipo | Workshop de Citi Banamex",
+	// 	time: "Tiempo de Desarrollo | 11 Agosto de 2018",
+	// 	team: "Desarrollo | UX Design: Berenice Lemus y Amelia Estrada+ 3 Front End",
+	// 	link: "https://github.com/rxmstrd/citi-kanban",
+	// 	img: citi,
+	// },
 
 ]
 
