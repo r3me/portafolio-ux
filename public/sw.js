@@ -11,8 +11,8 @@
  * See https://goo.gl/2aRDsh
  */
 
-importScripts("workbox-v3.6.2/workbox-sw.js");
-workbox.setConfig({modulePathPrefix: "workbox-v3.6.2"});
+importScripts("workbox-v3.6.3/workbox-sw.js");
+workbox.setConfig({modulePathPrefix: "workbox-v3.6.3"});
 
 workbox.core.setCacheNameDetails({prefix: "gatsby-plugin-offline"});
 
@@ -26,40 +26,26 @@ workbox.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-797643b017de12fc8197.js"
+    "url": "webpack-runtime-c663b4fc58dad9d4f5e4.js"
   },
   {
-    "url": "app-27a7db40e5625e22f61a.js"
+    "url": "app-2af19425c7ee2df0e211.js"
   },
   {
-    "url": "component---node-modules-gatsby-plugin-offline-app-shell-js-c36ab03cf1f59fe9fd67.js"
-  },
-  {
-    "url": "index.html",
-    "revision": "39620e249f605efc791696e7ec28c148"
+    "url": "component---node-modules-gatsby-plugin-offline-app-shell-js-7ea6217252fbebfcf15f.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "ea4f032946cb6fca32bb6114a6bddd37"
+    "revision": "ecec7c64b5caf518c9d02ced6efe025d"
   },
   {
-    "url": "component---src-pages-index-js.0183d40805c3f850d8f5.css"
+    "url": "component---src-pages-404-js.62e989517c564e36e48b.css"
   },
   {
-    "url": "component---src-pages-index-js-9127bda3a1a498f218c9.js"
+    "url": "component---src-pages-404-js-ad0bb78949881ec7cd4a.js"
   },
   {
-    "url": "0-c6ad9ea85e0fae383c3a.js"
-  },
-  {
-    "url": "static/d/173/path---index-6a9-NZuapzHg3X9TaN1iIixfv1W23E.json",
-    "revision": "c2508676a2f33ea9f1f0bf472997f9a0"
-  },
-  {
-    "url": "component---src-pages-404-js.32af2abaee9700ff4e2f.css"
-  },
-  {
-    "url": "component---src-pages-404-js-76d41c5fc95882408aba.js"
+    "url": "0-f412dd0963d3e1d872d8.js"
   },
   {
     "url": "static/d/164/path---404-html-516-62a-NZuapzHg3X9TaN1iIixfv1W23E.json",
@@ -77,30 +63,96 @@ self.__precacheManifest = [
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/portafolio-ux/offline-plugin-app-shell-fallback/index.html", {
-  whitelist: [/^[^?]*([^.?]{5}|\.html)(\?.*)?$/],
-  blacklist: [/\?(.+&)?no-cache=1$/],
-});
-
-workbox.routing.registerRoute(/\.(?:png|jpg|jpeg|webp|svg|gif|tiff|js|woff|woff2|json|css)$/, workbox.strategies.staleWhileRevalidate(), 'GET');
-workbox.routing.registerRoute(/^https:/, workbox.strategies.networkFirst(), 'GET');
+workbox.routing.registerRoute(/(\.js$|\.css$|\/static\/)/, workbox.strategies.cacheFirst(), 'GET');
+workbox.routing.registerRoute(/^https?:.*\.(png|jpg|jpeg|webp|svg|gif|tiff|js|woff|woff2|json|css)$/, workbox.strategies.staleWhileRevalidate(), 'GET');
+workbox.routing.registerRoute(/^https?:\/\/fonts\.googleapis\.com\/css/, workbox.strategies.staleWhileRevalidate(), 'GET');
 "use strict";
 
-/* global workbox */
-self.addEventListener("message", function (event) {
-  var api = event.data.api;
+/* global importScripts, workbox, idbKeyval */
+importScripts("idb-keyval-iife.min.js");
+var WHITELIST_KEY = "custom-navigation-whitelist";
+var navigationRoute = new workbox.routing.NavigationRoute(function (_ref) {
+  var event = _ref.event;
 
-  if (api === "gatsby-runtime-cache") {
-    var resources = event.data.resources;
-    var cacheName = workbox.core.cacheNames.runtime;
-    event.waitUntil(caches.open(cacheName).then(function (cache) {
-      return Promise.all(resources.map(function (resource) {
-        return cache.add(resource).catch(function (e) {
-          // ignore TypeErrors - these are usually due to
-          // external resources which don't allow CORS
-          if (!(e instanceof TypeError)) throw e;
-        });
-      }));
-    }));
+  var _ref2 = new URL(event.request.url),
+      pathname = _ref2.pathname;
+
+  return idbKeyval.get(WHITELIST_KEY).then(function (customWhitelist) {
+    if (customWhitelist === void 0) {
+      customWhitelist = [];
+    }
+
+    // Respond with the offline shell if we match the custom whitelist
+    if (customWhitelist.includes(pathname)) {
+      var offlineShell = "/portafolio-ux/offline-plugin-app-shell-fallback/index.html";
+      var cacheName = workbox.core.cacheNames.precache;
+      return caches.match(offlineShell, {
+        cacheName: cacheName
+      });
+    }
+
+    return fetch(event.request);
+  });
+});
+workbox.routing.registerRoute(navigationRoute);
+var updatingWhitelist = null;
+
+function rawWhitelistPathnames(pathnames) {
+  if (updatingWhitelist !== null) {
+    // Prevent the whitelist from being updated twice at the same time
+    return updatingWhitelist.then(function () {
+      return rawWhitelistPathnames(pathnames);
+    });
   }
+
+  updatingWhitelist = idbKeyval.get(WHITELIST_KEY).then(function (customWhitelist) {
+    if (customWhitelist === void 0) {
+      customWhitelist = [];
+    }
+
+    pathnames.forEach(function (pathname) {
+      if (!customWhitelist.includes(pathname)) customWhitelist.push(pathname);
+    });
+    return idbKeyval.set(WHITELIST_KEY, customWhitelist);
+  }).then(function () {
+    updatingWhitelist = null;
+  });
+  return updatingWhitelist;
+}
+
+function rawResetWhitelist() {
+  if (updatingWhitelist !== null) {
+    return updatingWhitelist.then(function () {
+      return rawResetWhitelist();
+    });
+  }
+
+  updatingWhitelist = idbKeyval.set(WHITELIST_KEY, []).then(function () {
+    updatingWhitelist = null;
+  });
+  return updatingWhitelist;
+}
+
+var messageApi = {
+  whitelistPathnames: function whitelistPathnames(event) {
+    var pathnames = event.data.pathnames;
+    pathnames = pathnames.map(function (_ref3) {
+      var pathname = _ref3.pathname,
+          includesPrefix = _ref3.includesPrefix;
+
+      if (!includesPrefix) {
+        return "/portafolio-ux" + pathname;
+      } else {
+        return pathname;
+      }
+    });
+    event.waitUntil(rawWhitelistPathnames(pathnames));
+  },
+  resetWhitelist: function resetWhitelist(event) {
+    event.waitUntil(rawResetWhitelist());
+  }
+};
+self.addEventListener("message", function (event) {
+  var gatsbyApi = event.data.gatsbyApi;
+  if (gatsbyApi) messageApi[gatsbyApi](event);
 });
