@@ -4,45 +4,32 @@ import ecommerce from '../../images/ecommerce.jpg'
 import financial from '../../images/financial-app.jpg'
 import teletón from '../../images/teleton.jpg'
 import blockchain from '../../images/idapp.jpg'
-import citi from '../../images/citi.jpg'
 
 const works = [
 	{
 		title: "Prototipo | Aplicación Financiera",
-		time: "Tiempo de Desarrollo | 3 Semanas",
-		team: "Desarrollo | UX Design: Amelia Estrada. (Proyecto Individual)",
 		link: "https://marvelapp.com/60f7397/screen/48903399",
+		sites: "https://sites.google.com/view/appfinanciera/p%C3%A1gina-principal",
 		img: financial,
 	},
 	{
 		title: "Prototipo | eCommerce",
-		time: "Tiempo de Desarrollo | 3 Semanas",
-		team: "Desarrollo | UX Design: Sandra Morelos y Amelia Estrada",
-		link: "https://github.com/rxmstrd/e-commerce",
+		link: "https://marvelapp.com/ecj1369/screen/47544031",
+		sites: "https://sites.google.com/view/jazhei/p%C3%A1gina-principal",
 		img: ecommerce,
 	},
 	{
 		title: "Prototipo | Hackathon Teletón",
-		time: "Tiempo de Desarrollo | 5, 6 y 7 de Octubre 2018",
-		team: "Desarrollo | UX Design: Amelia Estrada, Front End: Diana Arana y Alexis Doli ",
-		link: "https://github.com/rxmstrd/hackathonTeleton",
+		link: "https://www.figma.com/file/oMhb2d6sOPL2LAEGAExYz3/Teleton?node-id=0%3A1",
+		sites: "https://sites.google.com/view/confiateleton/p%C3%A1gina-principal",
 		img: teletón,
 	},
-	// {
-	// 	title: "Prototipo | Hackathon Blockchain",
-	// 	time: "Tiempo de Desarrollo | 22 y 23 de Sep 2018",
-	// 	team: "Desarrollo | UX Design + 2 Front End + 2 Estrategia de Neogocios ",
-	// 	link: "https://github.com/rxmstrd/1-1-1-identity-frontend-i",
-	// 	img: blockchain,
-	// },
-	// {
-	// 	title: "Prototipo | Workshop de Citi Banamex",
-	// 	time: "Tiempo de Desarrollo | 11 Agosto de 2018",
-	// 	team: "Desarrollo | UX Design: Berenice Lemus y Amelia Estrada+ 3 Front End",
-	// 	link: "https://github.com/rxmstrd/citi-kanban",
-	// 	img: citi,
-	// },
-
+	{
+		title: "Prototipo | Hackathon Blockchain",
+		link: "https://marvelapp.com/9i09d6b/screen/48170277",
+		sites: "https://sites.google.com/view/identidadapp/p%C3%A1gina-principal",
+		img: blockchain,
+	},
 ]
 
 const Portfolio = () => (
@@ -53,11 +40,10 @@ const Portfolio = () => (
 		{ works.map((work) => (
 			<div key={work.title}>
 				<h4>{work.title}</h4>
-				<h4>{work.time}</h4>
-				<h4>{work.team}</h4>
-				<a href={work.link} target="_blank" rel="noopener noreferrer">
+				<a className="img" href={work.link} target="_blank" rel="noopener noreferrer">
 					<img src={work.img} alt={work.title} />
 				</a>
+				<a className="site" href={work.sites} target="_blank" rel="noopener noreferrer">Proceso de UX</a>
 			</div>
 		)) }
   </div>
