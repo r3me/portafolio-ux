@@ -43,7 +43,7 @@ const Portfolio = () => (
 				<a className="img" href={work.link} target="_blank" rel="noopener noreferrer">
 					<img src={work.img} alt={work.title} />
 				</a>
-				<a className="site" href={work.sites} target="_blank" rel="noopener noreferrer">Proceso de UX</a>
+				<a className="site" href={work.sites} target="_blank" rel="noopener noreferrer">UX Design</a>
 			</div>
 		)) }
   </div>
