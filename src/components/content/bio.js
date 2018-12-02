@@ -18,7 +18,7 @@ const Bio = () => {
       {
       title: "Consultoría",
       description: "Freelance",
-      activity: "Auditoría del proceso lectoral, proyectos académicos, de mercadotecnia entre otros.",
+      activity: "Auditoría del proceso electoral, proyectos académicos, de mercadotecnia entre otros.",
       date: "2016-2018"
     },
     // {
