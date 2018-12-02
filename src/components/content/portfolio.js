@@ -4,6 +4,8 @@ import ecommerce from '../../images/ecommerce.jpg'
 import financial from '../../images/financial-app.jpg'
 import teletón from '../../images/teleton.jpg'
 import blockchain from '../../images/idapp.jpg'
+import registro from '../../images/registro.jpg'
+import Kmimos from '../../images/Kmimos.jpg'
 
 const works = [
 	{
@@ -29,6 +31,18 @@ const works = [
 		link: "https://marvelapp.com/9i09d6b/screen/48170277",
 		sites: "https://sites.google.com/view/identidadapp/p%C3%A1gina-principal",
 		img: blockchain,
+	},
+	{
+		title: "Prototipo en Marvel de Registro de Visitantes:",
+		link: "https://marvelapp.com/73f7e93/screen/46735739",
+		sites: "https://sites.google.com/view/registrodevisitantes/p%C3%A1gina-principal",
+		img: registro,
+	},
+	{
+		title: "Service Design Kmimos en Petco",
+		link: "https://sites.google.com/view/proyectokmimos/p%C3%A1gina-principal",
+		sites: "https://sites.google.com/view/proyectokmimos/p%C3%A1gina-principal",
+		img: Kmimos,
 	},
 ]
 
